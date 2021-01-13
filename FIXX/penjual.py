@@ -2,7 +2,6 @@ import sqlite3
 import database
 import os
 from user import *
-from pembeli import *
 
 class Penjual(database.getDatabase):
     def menuPenjual(self):
@@ -48,7 +47,7 @@ class Penjual(database.getDatabase):
     def deleteProduk(self):
         hapusProduk = str(input('Masukkan Produk yang akan dihapus : '))
 
-        query = "DELETE FROM produk WHERE namaProduk = '{}'".format(hapusProduk)
+        query = "DELETE FROM produk WHERE namaProduk = ?",hapusProduk,
         self.cursor.execute(query)
         self.database.commit()
 
@@ -56,6 +55,8 @@ class Penjual(database.getDatabase):
         cont = input("Apakah ingin kembali ke menu? (yes/ no)")
         if cont == 'yes':
             Penjual().menuPenjual()
+        else: 
+            Penjual().deleteProduk()
         
 
     def cekProduk(self):
@@ -75,5 +76,3 @@ class Penjual(database.getDatabase):
             print("Untuk produk ", cekProduk, "tidak tersedia")
             input('Klik enter untuk kembali ke Menu Penjual')
             Penjual().menuPenjual()
-
-#Penjual().menuPenjual()

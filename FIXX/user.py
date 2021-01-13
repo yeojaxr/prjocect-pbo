@@ -1,8 +1,6 @@
 import sqlite3 #menghubungkan ke sqlite
 import database #menghubungkan ke file database
 from penjual import * #menghubungkan ke file penjual
-from pembeli import * #menghubungkan ke file pembeli
-
 
 class User(database.getDatabase):
 
@@ -52,12 +50,9 @@ class User(database.getDatabase):
         self.database.commit()
 
         print ("Login Berhasil, Selamat Datang di Stock.Id", username, "^^")
-        user = input("Anda ingin masuk sebagai penjual/ pembeli? ")
+        user = input("Ketik 'ya' untuk melanjutkan!")
         
-        if user == 'penjual':
+        if user == 'ya':
             Penjual().menuPenjual()
-        elif user == 'pembeli':
-            Pembeli().menuPembeli()
-
 
 User().home()

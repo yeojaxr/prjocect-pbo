@@ -41,7 +41,7 @@ class Pembeli(database.getDatabase):
         self.database.commit()
 
         try: #dilakukan try dan except biar kalo ada error ngeprint yang except
-            print(print[0][0]," dengan harga ", barang[0][1] ," Tersedia ditoko kami")
+            print([0][0]," dengan harga ", barang[0][1] ," Tersedia ditoko kami")
             tambah = input("Apakah  ingin ditambahkan dikeranjang ? \nyes/no")
             if tambah == 'yes':
                 Pembeli.belanja.append(barang[0])
@@ -59,4 +59,4 @@ class Pembeli(database.getDatabase):
             print("Maaf, Barang yang anda cari tidak tersedia di toko kami")
             Pembeli().menuPembeli()
 
-    
+Pembeli().menuPembeli()
